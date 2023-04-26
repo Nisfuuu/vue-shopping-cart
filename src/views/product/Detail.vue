@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div id="page-wrap">
+    <!-- v-if jika ada data product jalankan, berhubungan dengan else NotFound yang di bawah -->
+    <div id="page-wrap" v-if="product">
       <div class="img">
         <img :src="product.imageUrl" alt="" />
       </div>
@@ -14,17 +15,25 @@
         </p>
       </div>
     </div>
+
+    <!-- jika data product tidak di temukan akan mengarahkan ke file 404 -->
+    <NotFound v-else />
   </div>
 </template>
 <script>
 import { products } from "../../data-seed";
+import NotFound from "../errors/404.vue";
 
 export default {
+  components: {
+    NotFound,
+  },
   data() {
     return {
       products,
     };
   },
+  // ketika user mengklik detail produck akan di tampilkan sesuai id nya begitu juga id yang di rote path
   computed: {
     product() {
       return this.products.find((p) => {

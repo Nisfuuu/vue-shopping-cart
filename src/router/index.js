@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Product from "../views/product/Index.vue";
 import ProductDetail from "../views/product/Detail.vue";
 import Cart from "../views/cart/Index.vue";
+import NotFound from "../views/errors/404.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,10 @@ const routes = [
     path: "/cart",
     name: "cart",
     component: Cart,
+  },
+  {
+    path: "*",
+    component: NotFound,
   },
 ];
 
