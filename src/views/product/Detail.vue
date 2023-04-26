@@ -5,7 +5,7 @@
         <img :src="product.imageUrl" alt="" />
       </div>
       <div id="product-details">
-        <h1>{{ produc.name }}</h1>
+        <h1>{{ product.name }}</h1>
         <h3 id="price">{{ product.price }}</h3>
         <p>{{ product.averageRating }}</p>
         <button id="add-to-cart">add to cart</button>
